@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comidas</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>Cadastro de Comidas</h1>
+
+    <form id="comidaForm">
+        <input type="text" id="gostosas" placeholder="Gostosas" required>
+        <input type="text" id="suculentas" placeholder="Suculentas" required>
+        <input type="text" id="image_url" placeholder="URL da Imagem" required>
+        <button type="submit">Adicionar Comida</button>
+    </form>
+
+    <h2>Comidas Cadastradas:</h2>
+    <ul id="comidasList"></ul>
+
+    <script>
+        const form = document.getElementById('comidaForm');
+        const comidasList = document.getElementById('comidasList');
+
+        // Função para buscar comidas
+        const fetchComidas = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/');
+                const comidas = response.data;
+
+                comidasList.innerHTML = '';
+                comidas.forEach(comida => {
+                    const li = document.createElement('li');
+                    li.textContent = `${comida.gostosas} - ${comida.suculentas} (${comida.image_url})`;
+                    comidasList.appendChild(li);
+                });
+            } catch (error) {
+                console.error('Erro ao buscar comidas:', error);
+            }
+        };
+
+        // Adicionar nova comida
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const gostosas = document.getElementById('gostosas').value;
+            const suculentas = document.getElementById('suculentas').value;
+            const image_url = document.getElementById('image_url').value;
+
+            try {
+                await axios.post('http://localhost:3000/', {
+                    gostosas,
+                    suculentas,
+                    image_url
+                });
+
+                fetchComidas(); // Atualizar a lista após adicionar
+                form.reset(); // Limpar o formulário
+            } catch (error) {
+                console.error('Erro ao adicionar comida:', error);
+            }
+        });
+
+        // Carregar comidas ao iniciar
+        fetchComidas();
+    </script>
+</body>
+</html>
