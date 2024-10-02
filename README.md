@@ -1,8 +1,6 @@
 bem, para poder rodar este projeto voce precisa o baixar, e jogar no vs code e usar alguns comandos dentro da pasta dele atraves do terminal, sendo eles:
 
-npm install
-
-node install
+npm install (voce precisa ter node instalado no computador)
 
 npm install express
 
