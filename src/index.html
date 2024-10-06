@@ -34,7 +34,7 @@
                 usuarioList.innerHTML = '';
                 usuario.forEach(usuario => {
                     const li = document.createElement('li');
-                    li.textContent = `${usuario.nome} - ${usuario.email} (${usuario.senha})`;
+                     li.textContent = ` Seu nome e: (${usuario.nome}), Seu email e: (${usuario.email}) E sua senha e: (${usuario.senha})`;
                     usuarioList.appendChild(li);
                 });
             } catch (error) {
