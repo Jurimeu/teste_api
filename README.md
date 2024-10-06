@@ -11,3 +11,5 @@ npm install cors
 para executar a API digite "node src/index.js" no terminal e se tudo der certo ela ira rodar na porta 3000.
 
 logo apos abra no navegador o index.html para realizar os testes
+
+caso esteja tendo problemas com o banco, pode excuir que ao colocar a API pra rodar ele cria sozinho se nao existir
