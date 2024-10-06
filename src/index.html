@@ -3,67 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comidas</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>usuarios</title>
 </head>
 <body>
-    <h1>Cadastro de Comidas</h1>
+    <h1>Cadastro de usuarios</h1>
 
-    <form id="comidaForm">
-        <input type="text" id="gostosas" placeholder="Gostosas" required>
-        <input type="text" id="suculentas" placeholder="Suculentas" required>
-        <input type="text" id="image_url" placeholder="URL da Imagem" required>
-        <button type="submit">Adicionar Comida</button>
+    <form id="usuarioForm">
+        <input type="text" id="nome" placeholder="Digite seu nome" required>
+        <input type="text" id="email" placeholder="digite seu email" required>
+        <input type="text" id="senha" placeholder="Digite sua senha" required>
+        <button type="submit">Adicionar usuario</button>
     </form>
 
-    <h2>Comidas Cadastradas:</h2>
-    <ul id="comidasList"></ul>
+    <h2>usuarios Cadastrados:</h2>
+    <ul id="usuarioList"></ul>
 
     <script>
-        const form = document.getElementById('comidaForm');
-        const comidasList = document.getElementById('comidasList');
+        const form = document.getElementById('usuarioForm');
+        const comidasList = document.getElementById('usuarioList');
 
         // Função para buscar comidas
-        const fetchComidas = async () => {
+        const fetchUsuarios = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/');
-                const comidas = response.data;
+                const response = await fetch('http://localhost:3000/');
+                if (!response.ok) {
+                    throw new Error('Erro na rede');
+                }
+                const usuario = await response.json();
 
-                comidasList.innerHTML = '';
-                comidas.forEach(comida => {
+                usuarioList.innerHTML = '';
+                usuario.forEach(usuario => {
                     const li = document.createElement('li');
-                    li.textContent = `${comida.gostosas} - ${comida.suculentas} (${comida.image_url})`;
-                    comidasList.appendChild(li);
+                    li.textContent = `${usuario.nome} - ${usuario.email} (${usuario.senha})`;
+                    usuarioList.appendChild(li);
                 });
             } catch (error) {
-                console.error('Erro ao buscar comidas:', error);
+                console.error('Erro ao buscar usuarios:', error);
             }
         };
 
-        // Adicionar nova comida
+        // Adicionar novo usuario
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            const gostosas = document.getElementById('gostosas').value;
-            const suculentas = document.getElementById('suculentas').value;
-            const image_url = document.getElementById('image_url').value;
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
 
             try {
-                await axios.post('http://localhost:3000/', {
-                    gostosas,
-                    suculentas,
-                    image_url
+                const response = await fetch('http://localhost:3000/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        nome,
+                        email,
+                        senha
+                    })
                 });
 
-                fetchComidas(); // Atualizar a lista após adicionar
+                if (!response.ok) {
+                    throw new Error('Erro ao adicionar comida');
+                }
+
+                fetchUsuarios(); // Atualizar a lista após adicionar
                 form.reset(); // Limpar o formulário
             } catch (error) {
                 console.error('Erro ao adicionar comida:', error);
             }
         });
 
-        // Carregar comidas ao iniciar
-        fetchComidas();
+        // Carregar usuarios ao iniciar
+        fetchUsuarios();
     </script>
 </body>
 </html>
