@@ -6,8 +6,6 @@ npm install express
 
 npm install sqlite3
 
-npm install axios
-
 npm install cors 
 
 para executar a API digite "node src/index.js" no terminal e se tudo der certo ela ira rodar na porta 3000.
