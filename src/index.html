@@ -3,79 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>usuarios</title>
+    <title>Usuários</title>
 </head>
 <body>
-    <h1>Cadastro de usuarios</h1>
+    <h1>Cadastro de Usuários</h1>
 
     <form id="usuarioForm">
         <input type="text" id="nome" placeholder="Digite seu nome" required>
-        <input type="text" id="email" placeholder="digite seu email" required>
-        <input type="text" id="senha" placeholder="Digite sua senha" required>
-        <button type="submit">Adicionar usuario</button>
+        <input type="email" id="email" placeholder="Digite seu email" required>
+        <input type="password" id="senha" placeholder="Digite sua senha" required>
+        <button type="submit">Adicionar Usuário</button>
     </form>
 
-    <h2>usuarios Cadastrados:</h2>
+    <h2>Usuários Cadastrados:</h2>
     <ul id="usuarioList"></ul>
 
-    <script>
-        const form = document.getElementById('usuarioForm');
-        const comidasList = document.getElementById('usuarioList');
-
-        // Função para buscar os usuarios
-        const fetchUsuarios = async () => {
-            try {
-                const response = await fetch('http://localhost:3000/');
-                if (!response.ok) {
-                    throw new Error('Erro na rede');
-                }
-                const usuario = await response.json();
-
-                usuarioList.innerHTML = '';
-                usuario.forEach(usuario => {
-                    const li = document.createElement('li');
-                     li.textContent = ` Seu nome e: (${usuario.nome}), Seu email e: (${usuario.email}) E sua senha e: (${usuario.senha})`;
-                    usuarioList.appendChild(li);
-                });
-            } catch (error) {
-                console.error('Erro ao buscar usuarios:', error);
-            }
-        };
-
-        // Adicionar novo usuario
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const senha = document.getElementById('senha').value;
-
-            try {
-                const response = await fetch('http://localhost:3000/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        nome,
-                        email,
-                        senha
-                    })
-                });
-
-                if (!response.ok) {
-                    throw new Error('Erro ao adicionar usuario');
-                }
-
-                fetchUsuarios(); // Atualizar a lista após adicionar
-                form.reset(); // Limpar o formulário
-            } catch (error) {
-                console.error('Erro ao adicionar usuario:', error);
-            }
-        });
-
-        // Carregar usuarios ao iniciar
-        fetchUsuarios();
-    </script>
+    <script src="funcoes.js"></script>
 </body>
 </html>
