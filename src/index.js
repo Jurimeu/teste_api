@@ -19,9 +19,9 @@ const db = new sqlite3.Database('./usuarios.db', (err) => {
 // Criar a tabela se não existir
 db.run(`CREATE TABLE IF NOT EXISTS usuarios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nome TEXT,
-    email TEXT,
-    senha TEXT
+    nome TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    senha TEXT NOT NULL
 );`);
 
 // Rota GET para buscar todas usuarios
