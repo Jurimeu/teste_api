@@ -1,4 +1,4 @@
-bem, para poder rodar este projeto voce precisa o baixar, e jogar no vs code e usar alguns comandos dentro da pasta dele atraves do terminal, sendo eles:
+Bem, para poder rodar este projeto voce precisa o baixar, e jogar no vs code e usar alguns comandos dentro da pasta dele atraves do terminal, sendo eles:
 
 npm install (voce precisa ter node instalado no computador)
 
