@@ -8,7 +8,7 @@ app.use(express.json());
 const port = 3000;
 
 // Criar ou abre o banco de dados SQLite (neste tete é usuarios.db)
-const db = new sqlite3.Database('./../usuarios.db', (err) => {
+const db = new sqlite3.Database('./usuarios.db', (err) => {
     if (err) {
         console.error('Erro ao conectar ao banco de dados:', err.message);
     } else {
