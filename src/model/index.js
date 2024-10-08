@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
     });
 });
 
-// Rota POST para adicionar uma nova comida
+// Rota POST para adicionar uma novo usuario
 app.post('/', (req, res) => {
     const { nome, email, senha } = req.body;
     db.run(`INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)`, [nome, email, senha], function(err) {
