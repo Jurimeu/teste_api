@@ -25,7 +25,7 @@ db.run(`CREATE TABLE IF NOT EXISTS usuarios (
 );`);
 
 // Rota GET para buscar todas usuarios
-app.get('/', (req, res) => {
+app.get('/usuarios', (req, res) => {
     db.all(`SELECT * FROM usuarios`, [], (err, rows) => {
         if (err) {
             return res.status(500).send(err.message);
@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 });
 
 // Rota POST para adicionar uma novo usuario
-app.post('/', (req, res) => {
+app.post('/cadastro', (req, res) => {
     const { nome, email, senha } = req.body;
     db.run(`INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)`, [nome, email, senha], function(err) {
         if (err) {
