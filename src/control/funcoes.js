@@ -4,7 +4,7 @@ const usuarioList = document.getElementById('usuarioList');
 // Função para buscar usuários
 const fetchUsuarios = async () => {
     try {
-        const response = await fetch('http://localhost:3000/');
+        const response = await fetch('http://localhost:3000/usuarios');
         if (!response.ok) {
             throw new Error('Erro na rede');
         }
@@ -30,7 +30,7 @@ form.addEventListener('submit', async (e) => {
     const senha = document.getElementById('senha').value;
 
     try {
-        const response = await fetch('http://localhost:3000/', {
+        const response = await fetch('http://localhost:3000/cadastro', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -41,6 +41,8 @@ form.addEventListener('submit', async (e) => {
         if (!response.ok) {
             throw new Error('Erro ao adicionar usuário');
         }
+
+        
 
         fetchUsuarios(); // Atualizar a lista após adicionar
         form.reset(); // Limpar o formulário

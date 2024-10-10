@@ -1,0 +1,51 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura total da viewport */
+    margin: 0;
+    background-color: #272E2E; /* Cor de fundo */
+    font-family: Helvetica;
+}
+.container {
+    background-color: #010203; /* Cor de fundo da div */
+    border: 2px solid #A5BE00; /* Borda */
+    border-radius: 8px; /* Cantos arredondados */
+    padding: 50px; /* Espaçamento interno */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    width: 300px; /* Largura da div */
+}
+h1 {
+    text-align: center; /* Centraliza o título */
+    color: #EBF2FA;
+}
+label {
+    display: block; /* Faz com que o label ocupe toda a linha */
+    margin: 10px 0 5px; /* Margem para os labels */
+}
+input {
+    width: 95%; /* Campo ocupa toda a largura */
+    padding: 8px; /* Espaçamento interno */
+    margin-bottom: 10px; /* Margem abaixo dos campos */
+    border: 1px solid #91a702; /* Borda dos campos */
+    border-radius: 4px; /* Cantos arredondados */
+    background-color: #272E2E;
+    color: #EBF2FA;
+}
+button {
+    width: 101%; /* Botão ocupa toda a largura */
+    padding: 10px; /* Espaçamento interno */
+    background-color: #A5BE00; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Sem borda */
+    border-radius: 4px; /* Cantos arredondados */
+    cursor: pointer; /* Cursor em forma de ponteiro */
+}
+button:hover {
+    background-color: #91a702; /* Cor ao passar o mouse */
+}
+
+input:focus {
+    border-color: #e0fa36; /* Cor da borda ao focar no input */
+    outline: none; /* Remove a borda padrão do foco */
+}
