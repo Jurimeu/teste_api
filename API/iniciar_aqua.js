@@ -1,4 +1,4 @@
-/*
+
 const express = require('express'); // importa o express
 const sqlite3 = require('sqlite3').verbose(); // importa os comandos pra usar o SQLite
 const cors = require('cors'); // Importar o pacote cors
@@ -54,29 +54,16 @@ CREATE TABLE IF NOT EXISTS dados (
 );
 `);
 
-// Rota GET para buscar todos os usuarios
-app.get('/', (req, res) => {
-    db.all(`SELECT * FROM usuarios`, [], (err, rows) => {
-        if (err) {
-            return res.status(500).send(err.message);
-        }
-        res.send(rows);
-    });
-});
+// Importar e usar as rotas
+const usuariosRoutes = require('./routes/usuarios')(db);
+const aquarioRoutes = require('./routes/aquario')(db);
+const dadosRoutes = require('./routes/dados')(db);
 
-// Rota POST para adicionar um novo usuario
-app.post('/', (req, res) => {
-    const { nome, email, senha, cod_rec } = req.body; // Certifique-se de incluir cod_rec aqui
-    db.run(`INSERT INTO usuarios (nome, email, senha, cod_rec) VALUES (?, ?, ?, ?)`, [nome, email, senha, cod_rec], function(err) {
-        if (err) {
-            return res.status(500).send(err.message);
-        }
-        res.status(201).send({ id: this.lastID, nome, email, senha, cod_rec });
-    });
-});
+app.use('/usuarios', usuariosRoutes);
+app.use('/aquario', aquarioRoutes);
+app.use('/dados', dadosRoutes);
 
 // Iniciar o servidor
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
 });
-*/
