@@ -15,6 +15,7 @@ document.getElementById('aquarioForm').addEventListener('submit', async (e) => {
         if (response.ok) {
             const newAquario = await response.json();
             console.log('Aquário cadastrado:', newAquario);
+             window.alert("Aquario cadastrado com sucesso");
             // Atualize a lista de aquários ou faça outra ação
         } else {
             console.error('Erro ao cadastrar aquário');
