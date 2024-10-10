@@ -14,6 +14,7 @@ document.getElementById('usuarioForm').addEventListener('submit', async (e) => {
         if (response.ok) {
             const newUser = await response.json();
             console.log('Usuário cadastrado:', newUser);
+             window.alert("Usuário cadastrado com sucesso");
             // Atualize a lista de usuários ou faça outra ação
         } else {
             console.error('Erro ao cadastrar usuário');
