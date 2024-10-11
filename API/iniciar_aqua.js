@@ -1,4 +1,3 @@
-
 const express = require('express'); // importa o express
 const sqlite3 = require('sqlite3').verbose(); // importa os comandos pra usar o SQLite
 const cors = require('cors'); // Importar o pacote cors
@@ -26,7 +25,6 @@ const db = new sqlite3.Database('./proje_aqua.db', (err) => {
     }
 });
 
-// Criar a tabela se não existir
 // Criar a tabela 'usuarios' se não existir
 db.run(`
     CREATE TABLE IF NOT EXISTS usuarios (
@@ -40,9 +38,9 @@ db.run(`
             console.error('Erro ao criar tabela usuarios:', err.message);
         }
     });
-    
-    // Criar a tabela 'aquario' se não existir
-    db.run(`
+
+// Criar a tabela 'aquario' se não existir
+db.run(`
     CREATE TABLE IF NOT EXISTS aquario (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         codigo TEXT NOT NULL,
@@ -56,9 +54,9 @@ db.run(`
             console.error('Erro ao criar tabela aquario:', err.message);
         }
     });
-    
-    // Criar a tabela 'dados' se não existir
-    db.run(`
+
+// Criar a tabela 'dados' se não existir
+db.run(`
     CREATE TABLE IF NOT EXISTS dados (
         temperatura TEXT NOT NULL,
         horario TEXT NOT NULL,
@@ -70,16 +68,16 @@ db.run(`
         }
     });
 
-
 const usuariosRoutes = require('./routes/usuarios')(db);
 const aquarioRoutes = require('./routes/aquario')(db);
 const dadosRoutes = require('./routes/dados')(db);
+const authRoutes = require('./routes/auth')(db); // Adicionando as rotas de autenticação
 
 app.use('/usuarios', usuariosRoutes);
 app.use('/aquario', aquarioRoutes);
 app.use('/dados', dadosRoutes);
+app.use('/auth', authRoutes); // Usando as rotas de autenticação
 
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
 });
-
