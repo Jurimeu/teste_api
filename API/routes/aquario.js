@@ -3,16 +3,22 @@ const express = require('express');
 module.exports = (db) => {
     const router = express.Router();
 
-    router.post('/', (req, res) => {
-        const { codigo, modelo, temperatura, imagem, usuario_id } = req.body;
+    router.post('/cadastro', (req, res) => {
+        const { codigo, modelo, temperatura, imagem } = req.body;
+    
+        if (!usuarioId) {
+            return res.status(401).json({ message: 'Usuário não autenticado.' });
+        }
+    
         db.run(`INSERT INTO aquario (codigo, modelo, temperatura, imagem, usuario_id) VALUES (?, ?, ?, ?, ?)`,
-            [codigo, modelo, temperatura, imagem, usuario_id], function (err) {
+            [codigo, modelo, temperatura, imagem, usuarioId], function (err) {
                 if (err) {
                     return res.status(400).send(err.message);
                 }
                 res.status(201).json({ id: this.lastID });
             });
     });
+    
 
     router.get('/', (req, res) => {
         db.all(`SELECT * FROM aquario`, [], (err, rows) => {
