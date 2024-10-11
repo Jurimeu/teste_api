@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-let usuarioId = null; // Variável global para armazenar o ID do usuário logado
+global.usuarioId = null; // Variável global para armazenar o ID do usuário logado
 
 module.exports = (db) => {
     // Rota para fazer login
