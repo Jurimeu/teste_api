@@ -3,7 +3,7 @@ const express = require('express');
 module.exports = (db) => {
     const router = express.Router();
 
-    router.post('/', (req, res) => {
+    router.post('/cadastro', (req, res) => {
         const { nome, email, senha, cod_rec } = req.body;
         db.run(`INSERT INTO usuarios (nome, email, senha, cod_rec) VALUES (?, ?, ?, ?)`,
             [nome, email, senha, cod_rec], function (err) {
