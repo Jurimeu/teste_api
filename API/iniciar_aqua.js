@@ -27,34 +27,50 @@ const db = new sqlite3.Database('./proje_aqua.db', (err) => {
 });
 
 // Criar a tabela se não existir
+// Criar a tabela 'usuarios' se não existir
 db.run(`
-CREATE TABLE IF NOT EXISTS usuarios (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nome TEXT NOT NULL,
-    email TEXT UNIQUE NOT NULL,
-    senha TEXT NOT NULL,
-    cod_rec TEXT NOT NULL
-);
+    CREATE TABLE IF NOT EXISTS usuarios (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome TEXT NOT NULL,
+        email TEXT UNIQUE NOT NULL,
+        senha TEXT NOT NULL,
+        cod_rec TEXT NOT NULL
+    );`, (err) => {
+        if (err) {
+            console.error('Erro ao criar tabela usuarios:', err.message);
+        }
+    });
+    
+    // Criar a tabela 'aquario' se não existir
+    db.run(`
+    CREATE TABLE IF NOT EXISTS aquario (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        codigo TEXT NOT NULL,
+        modelo TEXT NOT NULL,
+        temperatura TEXT NOT NULL,
+        imagem TEXT NOT NULL,
+        usuario_id INTEGER,
+        FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+    );`, (err) => {
+        if (err) {
+            console.error('Erro ao criar tabela aquario:', err.message);
+        }
+    });
+    
+    // Criar a tabela 'dados' se não existir
+    db.run(`
+    CREATE TABLE IF NOT EXISTS dados (
+        temperatura TEXT NOT NULL,
+        horario TEXT NOT NULL,
+        aquario_id INTEGER,
+        FOREIGN KEY (aquario_id) REFERENCES aquario(id) ON DELETE CASCADE
+    );`, (err) => {
+        if (err) {
+            console.error('Erro ao criar tabela dados:', err.message);
+        }
+    });
 
-CREATE TABLE IF NOT EXISTS aquario (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    codigo TEXT NOT NULL,
-    modelo TEXT NOT NULL,
-    temperatura TEXT NOT NULL,
-    imagem TEXT NOT NULL,
-    usuario_id INTEGER,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
-);
 
-CREATE TABLE IF NOT EXISTS dados (
-    temperatura TEXT NOT NULL,
-    horario TEXT NOT NULL,
-    aquario_id INTEGER,
-    FOREIGN KEY (aquario_id) REFERENCES aquario(id) ON DELETE CASCADE
-);
-`);
-
-// Importar e usar as rotas
 const usuariosRoutes = require('./routes/usuarios')(db);
 const aquarioRoutes = require('./routes/aquario')(db);
 const dadosRoutes = require('./routes/dados')(db);
@@ -63,7 +79,7 @@ app.use('/usuarios', usuariosRoutes);
 app.use('/aquario', aquarioRoutes);
 app.use('/dados', dadosRoutes);
 
-// Iniciar o servidor
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
 });
+
