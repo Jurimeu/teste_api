@@ -18,7 +18,7 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
         messageDiv.innerText = `Login bem-sucedido: ${data.message}`;
     } else {
         const errorData = await response.json();
-        messageDiv.innerText = `Erro: ${errorData.message}`;
+        messageDiv.innerText = `Deu erro no login patrao: ${errorData.message}`;
     }
 });
 
