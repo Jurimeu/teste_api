@@ -8,6 +8,11 @@ module.exports = (db) => {
     router.post('/login', (req, res) => {
         const { email, senha } = req.body;
 
+         // Verifica se já há um usuário logado
+        if (usuarioId !== null) {
+            return res.status(403).json({ message: 'Um usuário já está logado. Por favor, desconecte-se antes de tentar logar.' });
+        }
+
         db.get(`SELECT * FROM usuarios WHERE email = ? AND senha = ?`, [email, senha], (err, row) => {
             if (err || !row) {
                 return res.status(401).json({ message: 'E-mail ou senha incorretos!' });
