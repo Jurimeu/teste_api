@@ -6,7 +6,7 @@ document.getElementById('usuarioForm').addEventListener('submit', async (e) => {
     const cod_rec = document.getElementById('cod_rec').value;
 
     try {
-        const response = await fetch('http://localhost:3000/usuarios', {
+        const response = await fetch('http://localhost:3000/usuarios/cadastro', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ nome, email, senha, cod_rec }),
@@ -14,6 +14,7 @@ document.getElementById('usuarioForm').addEventListener('submit', async (e) => {
         if (response.ok) {
             const newUser = await response.json();
             console.log('Usuário cadastrado:', newUser);
+             window.alert("Usuário cadastrado com sucesso");
             // Atualize a lista de usuários ou faça outra ação
         } else {
             console.error('Erro ao cadastrar usuário');

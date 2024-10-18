@@ -13,6 +13,7 @@ document.getElementById('dadosForm').addEventListener('submit', async (e) => {
         if (response.ok) {
             const newDados = await response.json();
             console.log('Dados cadastrados:', newDados);
+             window.alert("Dados cadastrado com sucesso");
             // Atualize a lista de dados ou faça outra ação
         } else {
             console.error('Erro ao cadastrar dados');

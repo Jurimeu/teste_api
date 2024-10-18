@@ -4,24 +4,27 @@ document.getElementById('aquarioForm').addEventListener('submit', async (e) => {
     const modelo = document.getElementById('modelo').value;
     const temperatura = document.getElementById('temperatura').value;
     const imagem = document.getElementById('imagem').value;
-    const usuario_id = document.getElementById('usuario_id').value;
+    
 
     try {
-        const response = await fetch('http://localhost:3000/aquario', {
+        const response = await fetch('http://localhost:3000/aquario/cadastro', { 
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ codigo, modelo, temperatura, imagem, usuario_id }),
+            body: JSON.stringify({ codigo, modelo, temperatura, imagem }), // Removido usuario_id
         });
         if (response.ok) {
             const newAquario = await response.json();
             console.log('Aquário cadastrado:', newAquario);
+            window.alert("Aquário cadastrado com sucesso");
             // Atualize a lista de aquários ou faça outra ação
         } else {
-            console.error('Erro ao cadastrar aquário');
+            const errorData = await response.json();
+            console.error('Erro ao cadastrar aquário:', errorData.message);
         }
     } catch (error) {
         console.error('Erro:', error);
     }
+    
 });
 
 // Função para listar aquários
