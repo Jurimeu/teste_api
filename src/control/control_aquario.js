@@ -2,15 +2,13 @@ document.getElementById('aquarioForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const codigo = document.getElementById('codigo').value;
     const modelo = document.getElementById('modelo').value;
-    const temperatura = document.getElementById('temperatura').value;
-    const imagem = document.getElementById('imagem').value;
     
 
     try {
         const response = await fetch('http://localhost:3000/aquario/cadastro', { 
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ codigo, modelo, temperatura, imagem }), // Removido usuario_id
+            body: JSON.stringify({ codigo, modelo }), // Removido usuario_id
         });
         if (response.ok) {
             const newAquario = await response.json();
