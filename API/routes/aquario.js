@@ -4,7 +4,7 @@ module.exports = (db) => {
     const router = express.Router();
 
     router.post('/cadastro', (req, res) => {
-        const { codigo, modelo, temperatura, imagem } = req.body;
+        const { codigo, modelo } = req.body;
     
         if (!usuarioId) {
             return res.status(401).json({ message: 'Usuário não autenticado.' });
