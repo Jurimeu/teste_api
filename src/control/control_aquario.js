@@ -1,5 +1,6 @@
 document.getElementById('aquarioForm').addEventListener('submit', async (e) => {
     e.preventDefault();
+    const nome = document.getElementById('nome').value;
     const codigo = document.getElementById('codigo').value;
     const modelo = document.getElementById('modelo').value;
     
@@ -8,7 +9,7 @@ document.getElementById('aquarioForm').addEventListener('submit', async (e) => {
         const response = await fetch('http://localhost:3000/aquario/cadastro', { 
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ codigo, modelo }), // Removido usuario_id
+            body: JSON.stringify({ nome, codigo, modelo }), // Removido usuario_id
         });
         if (response.ok) {
             const newAquario = await response.json();
@@ -34,7 +35,7 @@ async function listarAquarios() {
         aquariosList.innerHTML = '';
         aquarios.forEach(aquario => {
             const div = document.createElement('div');
-            div.textContent = `ID: ${aquario.id}, Código: ${aquario.codigo}, Modelo: ${aquario.modelo}`;
+            div.textContent = `ID: ${aquario.id}, Nome: ${aquario.nome} Código: ${aquario.codigo}, Modelo: ${aquario.modelo}`;
             aquariosList.appendChild(div);
         });
     } catch (error) {
