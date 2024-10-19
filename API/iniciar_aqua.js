@@ -43,10 +43,9 @@ db.run(`
 db.run(`
     CREATE TABLE IF NOT EXISTS aquario (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome TEXT NOT NULL,
         codigo TEXT NOT NULL,
         modelo TEXT NOT NULL,
-        temperatura TEXT NOT NULL,
-        imagem TEXT NOT NULL,
         usuario_id INTEGER,
         FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
     );`, (err) => {
