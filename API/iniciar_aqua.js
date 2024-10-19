@@ -45,8 +45,6 @@ db.run(`
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         codigo TEXT NOT NULL,
         modelo TEXT NOT NULL,
-        temperatura TEXT NOT NULL,
-        imagem TEXT NOT NULL,
         usuario_id INTEGER,
         FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
     );`, (err) => {
