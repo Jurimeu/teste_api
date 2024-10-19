@@ -4,14 +4,14 @@ module.exports = (db) => {
     const router = express.Router();
 
     router.post('/cadastro', (req, res) => {
-        const { codigo, modelo } = req.body;
+        const { nome, codigo, modelo } = req.body;
     
         if (!usuarioId) {
             return res.status(401).json({ message: 'Usuário não autenticado.' });
         }
     
-        db.run(`INSERT INTO aquario (codigo, modelo, usuario_id) VALUES (?, ?, ?)`,
-            [codigo, modelo, usuarioId], function (err) {
+        db.run(`INSERT INTO aquario (nome, codigo, modelo, usuario_id) VALUES (?, ?, ?, ?)`,
+            [nome, codigo, modelo, usuarioId], function (err) {
                 if (err) {
                     return res.status(400).send(err.message);
                 }
@@ -31,9 +31,9 @@ module.exports = (db) => {
 
     router.put('/:id', (req, res) => {
         const { id } = req.params;
-        const { codigo, modelo, usuario_id } = req.body;
-        db.run(`UPDATE aquario SET codigo = ?, modelo = ?, usuario_id = ? WHERE id = ?`,
-            [codigo, modelo, temperatura, imagem, usuario_id, id], function (err) {
+        const { nome, codigo, modelo, usuario_id } = req.body;
+        db.run(`UPDATE aquario SET nome = ?, codigo = ?, modelo = ?, usuario_id = ? WHERE id = ?`,
+            [nome, codigo, modelo, usuario_id, id], function (err) {
                 if (err) {
                     return res.status(400).send(err.message);
                 }
