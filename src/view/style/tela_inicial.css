@@ -162,3 +162,15 @@ main {
 .project-card:hover {
     transform: scale(1.05); /* Efeito de zoom no hover */
 }
+
+
+img {
+    width: 80px; /* Ajuste o tamanho da imagem */
+    height: 80px; /* Ajuste o tamanho da imagem */
+}
+
+.imgCard {
+    width: 100%; /* Faz a imagem ocupar toda a largura do card */
+    height: 70%; /* Ajuste a altura da imagem como desejar */
+    object-fit: cover; /* Garante que a imagem cubra completamente a área */
+}
