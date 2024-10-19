@@ -1,15 +1,24 @@
-const correctEmail = "usuario@exemplo.com";
-const correctPassword = "senha123";
+document.getElementById('loginForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Impede o envio do formulário padrão
 
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('password').value;
 
-    if (email === correctEmail && password === correctPassword) {
-        // Redirecionar para a tela inicial
-        window.location.href = "tela_inicial.html"; // Substitua pelo seu arquivo
+    const response = await fetch('http://localhost:3000/auth/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, senha }),
+    });
+
+    
+    if (response.ok) {
+        const data = await response.json();
+        window.alert(`Login bem-sucedido: ${data.message}`);
     } else {
-        document.getElementById("errorMessage").textContent = "E-mail ou senha incorretos.";
+        const errorData = await response.json();
+        window.alert(`Deu erro no login patrao: ${errorData.message}`);
     }
 });
+
