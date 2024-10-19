@@ -9,32 +9,27 @@
 </head>
 <body>
     <header>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div> <!-- Ícone de Menu -->
         <h1>Aquário</h1>
     </header>
-    <nav id="sidebar">
+    <nav class="toolbar" id="toolbar">
         <div id="sidebar_content">
             <div id="user">
                 <img src="src/images/avatar.jpg" id="user_avatar" alt="Avatar">
                 <p id="user_infos">
-                    <span class="item-description">Fulano de Tal</span>
+                    <span class="item-description">Fulano de Tal</span><br>
                     <span class="item-description">Lorem Ipsum</span>
                 </p>
             </div>
             <ul id="side_items">
                 <li class="side-item active">
-                    <a href="#"><i class="fa-solid fa-chart-line"></i><span class="item-description">Dashboard</span></a>
+                    <a href="#"><i class="fa-solid fa-chart-line"></i><span class="item-description">Perfil</span></a>
                 </li>
                 <li class="side-item">
-                    <a href="#"><i class="fa-solid fa-user"></i><span class="item-description">Usuários</span></a>
+                    <a href="#"><i class="fa-solid fa-user"></i><span class="item-description">Cadastrar Aquário</span></a>
                 </li>
                 <li class="side-item">
-                    <a href="#"><i class="fa-solid fa-bell"></i><span class="item-description">Notificações</span></a>
-                </li>
-                <li class="side-item">
-                    <a href="#"><i class="fa-solid fa-box"></i><span class="item-description">Produtos</span></a>
-                </li>
-                <li class="side-item">
-                    <a href="#"><i class="fa-solid fa-image"></i><span class="item-description">Imagens</span></a>
+                    <a href="#"><i class="fa-solid fa-bell"></i><span class="item-description">Meus Aquários</span></a>
                 </li>
                 <li class="side-item">
                     <a href="#"><i class="fa-solid fa-gear"></i><span class="item-description">Configurações</span></a>
@@ -48,23 +43,42 @@
             </button>
         </div>
     </nav>
-    
+
     <main>
-        <div class="project-grid">
-            <div class="project-card">
-                <img src="../img/Aquario_esfera.jpg" alt="Aquario esfera" class="imgCard">
-                <p>Aquario esfera</p>
-            </div>
-            <div class="project-card">
-                <img src="../img/Aquario_quadrado.jpg" alt="Aquario quadrado" class="imgCard">
-                <p>Aquario quadrado</p>
-            </div>
-            <div class="project-card">
-                <img src="../img/Aquario_retangulo.jpg" alt="Aquario retangulo" class="imgCard">
-                <p>Aquario retângulo</p>
+    <div class="card-container">
+        <div class="card">
+            <img src="../img/Aquario_esfera.jpg">
+            <div class="card-content">
+                <h3>Aquário esfera</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. </p>
+                <a href="" class="btn">Veja Mais</a>
             </div>
         </div>
+        <div class="card">
+            <img src="../img/Aquario_quadrado.jpg">
+            <div class="card-content">
+                <h3>Aquário quadrado</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. </p>
+                <a href="" class="btn">Veja Mais</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../img/Aquario_retangulo.jpg">
+            <div class="card-content">
+                <h3>Aquário retangular</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. </p>
+                <a href="" class="btn">Veja Mais</a>
+            </div>
+        </div>
+    </div>
     </main>
     <script src="../script/tela_incial.js"></script>
+    
+    <script>
+        function toggleMenu() {
+            const toolbar = document.getElementById('toolbar');
+            toolbar.classList.toggle('active'); // Adiciona ou remove a classe 'active'
+        }
+    </script>
 </body>
 </html>
