@@ -10,8 +10,8 @@ module.exports = (db) => {
             return res.status(401).json({ message: 'Usuário não autenticado.' });
         }
     
-        db.run(`INSERT INTO aquario (codigo, modelo, temperatura, imagem, usuario_id) VALUES (?, ?, ?, ?, ?)`,
-            [codigo, modelo, temperatura, imagem, usuarioId], function (err) {
+        db.run(`INSERT INTO aquario (codigo, modelo, usuario_id) VALUES (?, ?, ?)`,
+            [codigo, modelo, usuarioId], function (err) {
                 if (err) {
                     return res.status(400).send(err.message);
                 }
@@ -31,8 +31,8 @@ module.exports = (db) => {
 
     router.put('/:id', (req, res) => {
         const { id } = req.params;
-        const { codigo, modelo, temperatura, imagem, usuario_id } = req.body;
-        db.run(`UPDATE aquario SET codigo = ?, modelo = ?, temperatura = ?, imagem = ?, usuario_id = ? WHERE id = ?`,
+        const { codigo, modelo, usuario_id } = req.body;
+        db.run(`UPDATE aquario SET codigo = ?, modelo = ?, usuario_id = ? WHERE id = ?`,
             [codigo, modelo, temperatura, imagem, usuario_id, id], function (err) {
                 if (err) {
                     return res.status(400).send(err.message);
