@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleCad.css">
+    <link rel="stylesheet" href="../style/styleCad.css">
     <script src="../control/control_usuarios.js" defer></script>
     <title>Cadastro do Usuário</title>
 </head>
@@ -59,14 +59,15 @@
                         <input id="cod_rec" type="text" placeholder="Digite um código para recuperar a senha" required>
                     </div>
                 </div>
+                <div id="usuariosList"></div>
+                    <!-- Container para o botão de cadastro e a mensagem -->
+                        <div class="footer-container">
+                            <button type="submit">Cadastrar</button>
+                            <h2>Já possui conta? <a href="#login.html">Entre aqui</a></h2>
+                        </div>
             </form>
         </div>
-        <div id="usuariosList"></div>
-        <!-- Container para o botão de cadastro e a mensagem -->
-        <div class="footer-container">
-            <button type="submit">Cadastrar</button>
-            <h2>Já possui conta? <a href="#">Entre aqui</a></h2>
-        </div>
+        
     </div>
 
 <!-- Script para a senha-->
@@ -86,7 +87,6 @@ function togglePassword() {
         iconHide.style.display = "none";
     }
 }
-</script>
-        
+</script> 
 </body>
 </html>
