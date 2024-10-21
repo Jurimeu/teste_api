@@ -10,7 +10,7 @@ body, html {
 
 /* Definindo a imagem de fundo */
 body {
-    background-image: url('fundLog.png');
+    background-image: url('../img/fundLog.png'); 
     background-size: cover;
     background-position: center;
     display: flex;
@@ -126,6 +126,7 @@ h2 {
     height: 35px;
     fill: none;
     stroke:#EBF2FA; /* Cor do ícone */
+
 }
 
 
@@ -172,4 +173,3 @@ button:hover {
 .footer-container a:hover {
     text-decoration: underline;
 }
-

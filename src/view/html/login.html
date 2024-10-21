@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleLog.css">
+    <link rel="stylesheet" href="../style/styleLog.css">
     <title>Login do Usuário</title>
     <script src="../control/control_auth.js" defer></script>
 </head>
@@ -45,15 +45,16 @@
                         </div>
                     </div>
                 </div>
+                
+                <div id="usuariosList"></div>
+                    <!-- Container para o botão de cadastro e a mensagem -->
+                    <div class="footer-container">
+                        <button type="submit">Entrar</button>
+                        <h2>Não possui conta? <a href="#">Cadastre-se</a></h2>
+                    </div>
             </form>
         </div>
-        <div id="usuariosList"></div>
-        <!-- Container para o botão de cadastro e a mensagem -->
-        <div class="footer-container">
-            <button type="submit">Entrar</button>
-            <h2>Não possui conta? <a href="#">Cadastre-se</a></h2>
-            
-        </div>
+        
     </div>
 
 <!-- Script para a senha-->
@@ -73,7 +74,6 @@ function togglePassword() {
         iconHide.style.display = "none";
     }
 }
-</script>
-        
+</script>        
 </body>
 </html>
