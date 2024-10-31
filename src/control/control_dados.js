@@ -11,10 +11,9 @@ document.getElementById('dadosForm').addEventListener('submit', async (e) => {
     const ano = dataAtual.getFullYear();
     const horas = String(dataAtual.getHours()).padStart(2, '0');
     const minutos = String(dataAtual.getMinutes()).padStart(2, '0');
-    const segundos = String(dataAtual.getSeconds()).padStart(2, '0');
 
     // Formata a data e hora como uma string ISO
-    const dataHoraFormatada = `${ano}-${mes}-${dia} ${horas}:${minutos}:${segundos}`;
+    const dataHoraFormatada = `${ano}-${mes}-${dia} ${horas}:${minutos}`;
     return dataHoraFormatada;
 }
 
