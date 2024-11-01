@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/cad_aquario.css">
+    <script src="../script/cad_aquario.js" defer></script>
+    <title>Cadastro dos Aquários</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header-container">
+            <h1>Aquários</h1>
+            <p>Digite as informações para que seu aquário possa ser cadastrado no nosso sistema...</p>
+        </div>
+
+        <div class="form-container">
+            <form id="aquarioForm">
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="nome">Nome para o aquário</label>
+                        <input type="text" id="nome" placeholder="Digite um nome para o aquário" required>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="nome">Código do aquário</label>
+                        <input type="text" id="codigo" placeholder="Digite o código do aquário" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="nome">Modelo</label>
+                        <input type="text" id="modelo" placeholder="Digite o modelo do aquário" required>
+                    </div>
+                </div>
+                <div id="aquariosList"></div>
+
+                <div class="footer-container">
+                    <button type="submit">Cadastrar</button>
+                </div>
+            </form>
+        </div>   
+</body>
+</html>
