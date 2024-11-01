@@ -1,3 +1,4 @@
+/*
 document.getElementById('loginForm').addEventListener('submit', async (event) => {
     event.preventDefault(); // Impede o envio do formulário padrão
 
@@ -20,5 +21,7 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
         const errorData = await response.json();
         window.alert(`Deu erro no login patrao: ${errorData.message}`);
     }
-});
+}); 
+
+*/
 
