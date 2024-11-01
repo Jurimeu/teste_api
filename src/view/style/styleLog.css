@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', 'Irish Grover';
+}
+
+body {
+    background-image: url('../img/fundLog.png'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 850px;
+    padding: 20px;
+    border-radius: 25px;
+    background: rgba(1, 2, 3, 0.85);
+    background-blend-mode: multiply;
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.40);
+    display: center;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0px;
+}
+
+h1 {
+    color: #EBF2FA;
+    font-family: 'Irish Grover';
+    font-size: 45px;
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+
+h2 {
+    color: #EBF2FA;
+    font-family: 'Poppins';
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.form-container form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    font-weight: 300;
+    gap: 0px;
+}
+
+.input-box label {
+    display: block;
+    color: #EBF2FA;
+    font-family: 'Poppins';
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 2; /* Define o espaçamento de linha */
+    height: 50%; /* Define a altura visível como metade */
+    overflow: hidden; /* Oculta a parte que excede a altura */
+}
+
+.input-box input {
+    width: 750px;
+    padding: 10px;
+    border-radius: 100px;
+    border: 1px solid #EBF2FA;
+    background: rgba(235, 242, 250, 0.15);
+    color: rgba(235, 242, 250, 0.65);
+    font-family: 'Poppins';
+    font-size: 15px;
+    outline: none;
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 750px;
+    padding-right: 10px; /* Espaço para o ícone */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-password svg {
+    width: 35px;
+    height: 35px;
+    fill: none;
+    stroke:#EBF2FA; /* Cor do ícone */
+
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+button {
+    width: 355px;
+    padding: 10px;
+    border-radius: 100px;
+    background: #A5BE00;
+    border: none;
+    cursor: pointer;
+    color: #E8ECF1;
+    font-family: 'Poppins';
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #000;
+    color: #A5BE00;
+    border: 2px solid #A5BE00;
+}
+
+.footer-container h2 {
+    color: #EBF2FA;
+    font-family: 'Poppins';
+    font-size: 15px;
+}
+
+.footer-container a {
+    color: #A5BE00;
+    text-decoration: none;
+}
+
+.footer-container a:hover {
+    text-decoration: underline;
+}
