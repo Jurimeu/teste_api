@@ -20,7 +20,25 @@ async function listarAquarios() {
         
             // Criando a imagem
             const img = document.createElement('img');
-            img.src = '../img/Aquario_esfera.jpg'; // URL da imagem padrão
+            
+             const imagem = aquario.modelo;
+
+            switch (imagem){
+
+                case 'esfera':
+                    img.src = '../img/Aquario_esfera.jpg';
+                    break;
+                case 'quadrado':
+                    img.src = '../img/Aquario_quadrado.jpg';
+                    break;
+                case 'retangulo':
+                    img.src = '../img/Aquario_retangulo.jpg';
+                    break;
+                default:
+                    console.log('Modelo nao encontrado');
+
+            }
+            
             img.alt = aquario.nome; // Texto alternativo
             img.className = 'imgCard'; // Adiciona a classe da imagem
         
