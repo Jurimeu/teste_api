@@ -20,14 +20,16 @@ module.exports = (db) => {
     });
     
 
-    router.get('/', (req, res) => {
-        db.all(`SELECT * FROM aquario`, [], (err, rows) => {
-            if (err) {
-                return res.status(400).send(err.message);
-            }
-            res.json(rows);
-        });
+   router.get('/', (req, res) => {
+    const query = `SELECT * FROM aquario WHERE usuario_id = ?`;
+    db.all(query, [usuarioId], (err, rows) => {
+        if (err) {
+            return res.status(400).send(err.message);
+        }
+
+        res.json(rows);
     });
+});
 
     router.put('/:id', (req, res) => {
         const { id } = req.params;
