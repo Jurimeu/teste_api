@@ -19,6 +19,6 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
         window.location.href = 'tela_inicial.html';
     } else {
         const errorData = await response.json();
-        messageDiv.innerText = `Deu erro no login patrao: ${errorData.message}`;
+        window.alert("Algo esta errado e nao foi possivel realizar login");
     }
 });
