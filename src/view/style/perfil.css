@@ -110,10 +110,24 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 400px;
+    gap: 105px;
     padding: 20px 0;
 }
 
+.button-edit button {
+    width: 190px;
+    height: 40px;
+    background-color: #27bce7;
+    color: #F5F7FA;
+    border: none;
+    font-family: 'Poppins'; 
+    font-size: 18px;
+    text-align: center;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s;
+
+}
 .button-back button, .button-resume button {
     width: 190px;
     height: 40px;
@@ -126,6 +140,13 @@ main {
     border-radius: 100px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s;
+}
+
+.button-edit button:hover {
+
+    background-color: #1b7b96;
+    transform: scale(1.05);
+
 }
 
 .button-back button:hover {
