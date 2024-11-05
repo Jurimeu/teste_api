@@ -81,9 +81,8 @@ p {
     font-family: 'Poppins';
     font-size: 15px;
     font-weight: 600;
-    line-height: 2; /* Define o espaçamento de linha */
-    height: 50%; /* Define a altura visível como metade */
-    overflow: hidden; /* Oculta a parte que excede a altura */
+    line-height: 2; 
+    height: 50%; 
 }
 
 .input-box input {
@@ -98,7 +97,79 @@ p {
     outline: none;
 }
 
-button {
+/* selecionar modelos*/
+
+.select-menu {
+    display: center;
+    flex-direction: column;
+    font-weight: 300;
+    gap: 0px;
+}
+
+.select-menu label {
+    display: block;
+    color: #EBF2FA;
+    font-family: 'Poppins';
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 2; 
+    height: 50%; 
+}
+
+.select-menu .select-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 750px;
+    padding: 10px;
+    border-radius: 100px;
+    border: 1px solid #EBF2FA;
+    background: #ebf2fa26;
+    color: #ebf2faa6;
+    font-family: 'Poppins';
+    font-size: 15px;
+    outline: none;
+    cursor: pointer;
+}
+
+.select-menu .options {
+    display: none;
+    position: relative;
+    padding: 10px;
+    border-radius: 10px;
+    background: #E8ECF1;
+}
+
+.select-menu.active .options {
+    display: block;
+}
+
+.options .option{
+    display: flex;
+    height: 55px;
+    cursor: pointer;
+    padding: 0px 15px;
+    align-items: center;
+    border-radius: 10px;
+    gap: 10px;
+    color: #005070;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.options .option:hover{
+    background: #00507048;
+}
+
+/* fim do select*/
+
+.footer-container{
+    display: flex;
+    gap:20px;
+}
+
+.footer-container button {
     width: 355px;
     padding: 10px;
     border-radius: 100px;
@@ -113,15 +184,13 @@ button {
     transition: all 0.3s ease;
 }
 
-button:hover {
+.footer-container button:hover {
     background: #000;
     color: #A5BE00;
     border: 2px solid #A5BE00;
 }
 
-.footer-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 30px;
+.footer-container a {
+    color: inherit;
+    text-decoration: none;
 }
