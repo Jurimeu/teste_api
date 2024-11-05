@@ -3,8 +3,25 @@ const express = require('express');
 module.exports = (db) => {
     const router = express.Router();
 
+    function obterDataHoraAtual() {
+        const dataAtual = new Date();
+        const dia = String(dataAtual.getDate()).padStart(2, '0');
+        const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
+        const ano = dataAtual.getFullYear();
+        const horas = String(dataAtual.getHours()).padStart(2, '0');
+        const minutos = String(dataAtual.getMinutes()).padStart(2, '0');
+    
+        // Formata a data e hora como uma string ISO
+        const dataHoraFormatada = `${ano}-${mes}-${dia} ${horas}:${minutos}`;
+        return dataHoraFormatada;
+    }
+    
+
     router.post('/', (req, res) => {
-        const { temperatura, horario, aquario_id } = req.body;
+
+        const horario = obterDataHoraAtual();
+
+        const { temperatura, aquario_id } = req.body;
         db.run(`INSERT INTO dados (temperatura, horario, aquario_id) VALUES (?, ?, ?)`,
             [temperatura, horario, aquario_id], function (err) {
                 if (err) {
