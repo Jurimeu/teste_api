@@ -71,7 +71,21 @@ h2 {
     display: flex;
     flex-direction: column;
     font-weight: 300;
-    gap: 0px;
+}
+
+.input-box p{
+    display: flex;
+    text-align: right;
+    padding: 0px;
+}
+.input-box a{
+    font-size: 14px;
+    color: #A5BE00;
+    text-decoration: none;
+}
+
+.input-box a:hover {
+    text-decoration: underline;
 }
 
 .input-box label {
@@ -129,7 +143,6 @@ h2 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-top: 30px;
 }
 
 button {
