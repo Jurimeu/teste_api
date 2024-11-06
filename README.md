@@ -13,3 +13,5 @@ para executar a API digite "node .\API\iniciar_aqua.js" no terminal e se tudo de
 logo apos abra no navegador o index.html para realizar os testes
 
 caso esteja tendo problemas com o banco, pode excuir que ao colocar a API pra rodar ele cria sozinho se nao existir
+
+Um breve resumo sobre este projeto é que ele é uma API que se conecta a um ESP32 para poder capturar e armazenar em banco SQLite as temperaturas de um aquario expecifico ligado ao proprio ESP32
