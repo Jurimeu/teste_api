@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" href="../style/tela_inicial.css">
+    <link rel="stylesheet" href="../style/perfil.css">
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div> <!-- Ícone de Menu -->
+        <h1>Kazin - Aquário Profissional</h1>
+        <nav>
+            <ul class="navlinks">
+                <li><a href="#">Introdução</a></li>
+                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="#">Nosso Projeto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <nav class="toolbar" id="toolbar">
+        <div id="sidebar_content">
+            <div id="user">
+                <img src="../img/placeholder_user.png" id="user_avatar" alt="Avatar">
+                <p id="user_infos">
+                    <span class="item-description">Fulano de Tal</span><br>
+                    <span class="item-description">Lorem Ipsum</span>
+                </p>
+            </div>
+            <ul id="side_items">
+                <li class="side-item">
+                    <a href="perfil.html"><span class="item-description">Perfil</span></a>
+                </li>
+                <li class="side-item">
+                    <a href="cad_aquario.html"><span class="item-description">Cadastrar Aquário</span></a>
+                </li>
+                <li class="side-item">
+                    <a href="#"><span class="item-description">Configurações</span></a>
+                </li>
+            </ul>
+        </div>
+        
+        <div id="logout">
+            <button id="logoutButton">
+                <span class="item-description">Logout</span>
+            </button>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="profile-container">
+            <p>Perfil do Usuário</p>
+            <div class="profile-photo">
+              <img src="../img/placeholder_user.png" alt="Foto do Usuário">
+            </div>
+            <div class="profile-info">
+              <label>Nome:</label>
+              <input type="text" id="userName" value="Nome do Usuário" disabled>
+              
+              <label>Email:</label>
+              <input type="email" id="userEmail" value="usuario@exemplo.com" disabled>
+              
+                <label>Senha:</label>
+                <div class="password-container">
+                  <input type="password" id="userPassword" value="senha123" disabled>
+                  <button type="button" id="togglePassword" class="toggle-password">
+                    <!-- Ícone de olho para mostrar a senha -->
+                    <svg id="icon-show" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 33 30" fill="none">
+                        <path d="M23.9517 8.035C22.6236 9.57593 21.7739 11.4708 21.5067 13.4875" stroke="#005070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M1.91669 11.131C9.87719 20.053 17.3562 23.986 23.8122 21.781M27.6867 19.6075C29.1687 18.4255 30.5817 16.8535 31.9167 14.878C27.4167 8.2135 22.0227 6.16 16.0707 8.056M11.9247 9.955C8.70719 11.854 5.35769 14.7775 1.91669 18.634M25.9167 13.375V13.39M15.6462 13.6285C15.2162 14.7945 15.3897 15.96 16.1667 17.125M3.41669 1.375L30.4167 28.375" stroke="#005070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                  </button>
+                </div>
+              
+              
+              
+            </div>
+
+            <div class="button-section">
+                <button><a href="tela_inicial.html">Voltar</a></button>
+                <button id="editButton">Editar</button>
+                <button id="saveButton" style="display: none;">Salvar</button>
+                <button id="delete-btn">Excluir Perfil</button>
+            </div>
+            
+          </div>      
+    </main>
+
+    <footer>
+        <div id="footer_content">
+            <div id="footer_contacts">
+                <h1>Logo</h1>
+                <p>Projeto Arduino desenvolvido pelos alunos da Fatec Cruzeiro - SP</p>
+
+                <div id="footer_socialmedia">
+                    <a href="https://www.facebook.com/fateccruzeiro" class="footer-link" id="facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
+                            <path opacity="0.1" fill-rule="evenodd" clip-rule="evenodd" d="M0.5 16C0.5 7.16344 7.66344 0 16.5 0C25.3366 0 32.5 7.16344 32.5 16C32.5 24.8366 25.3366 32 16.5 32C7.66344 32 0.5 24.8366 0.5 16Z" fill="white"/>
+                            <path d="M22.7281 20.625L23.4375 16H19V13C19 11.7344 19.6188 10.5 21.6063 10.5H23.625V6.5625C23.625 6.5625 21.7938 6.25 20.0438 6.25C16.3875 6.25 14 8.46563 14 12.475V16H9.9375V20.625H14V31.8062C14.8156 31.9344 15.65 32 16.5 32C17.35 32 18.1844 31.9344 19 31.8062V20.625H22.7281Z" fill="white"/>
+                          </svg>
+                    </a>
+                    <a href="https://x.com/fateccruzeiro" class="footer-link" id="twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
+                            <path opacity="0.1" fill-rule="evenodd" clip-rule="evenodd" d="M0.5 16C0.5 7.16344 7.66344 0 16.5 0C25.3366 0 32.5 7.16344 32.5 16C32.5 24.8366 25.3366 32 16.5 32C7.66344 32 0.5 24.8366 0.5 16Z" fill="white"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.0208 13.0051L16.0544 13.5587L15.4948 13.4909C13.4579 13.2311 11.6784 12.3498 10.1676 10.8696L9.42891 10.1352L9.23865 10.6776C8.83575 11.8865 9.09316 13.1633 9.93253 14.022C10.3802 14.4965 10.2795 14.5643 9.50725 14.2819C9.23865 14.1915 9.00363 14.1237 8.98124 14.1576C8.9029 14.2367 9.1715 15.2648 9.38414 15.6716C9.67513 16.2365 10.2683 16.7902 10.9174 17.1178L11.4658 17.3777L10.8167 17.389C10.1899 17.389 10.1676 17.4003 10.2347 17.6376C10.4585 18.372 11.3427 19.1516 12.3276 19.4906L13.0214 19.7278L12.4171 20.0894C11.5218 20.6091 10.4697 20.9029 9.41772 20.9255C8.91409 20.9368 8.5 20.982 8.5 21.0159C8.5 21.1289 9.86538 21.7616 10.66 22.0102C13.0438 22.7446 15.8753 22.4282 18.0017 21.1741C19.5126 20.2815 21.0235 18.5076 21.7286 16.7902C22.1091 15.875 22.4896 14.2028 22.4896 13.4006C22.4896 12.8808 22.5232 12.813 23.1499 12.1916C23.5192 11.83 23.8662 11.4346 23.9333 11.3216C24.0452 11.1069 24.034 11.1069 23.4633 11.299C22.512 11.638 22.3777 11.5928 22.8477 11.0843C23.1947 10.7228 23.6088 10.0674 23.6088 9.87536C23.6088 9.84146 23.4409 9.89796 23.2506 9.99964C23.0492 10.1126 22.6015 10.2821 22.2658 10.3838L21.6614 10.5759L21.113 10.203C20.8108 9.99964 20.3856 9.77367 20.1617 9.70588C19.5909 9.5477 18.718 9.57029 18.2032 9.75107C16.8042 10.2595 15.9201 11.5702 16.0208 13.0051Z" fill="white"/>
+                          </svg>
+                    </a>
+                    <a href="https://www.youtube.com/fateccruzeiro" class="footer-link" id="youtube">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
+                            <path opacity="0.1" fill-rule="evenodd" clip-rule="evenodd" d="M0.5 16C0.5 7.16344 7.66344 0 16.5 0C25.3366 0 32.5 7.16344 32.5 16C32.5 24.8366 25.3366 32 16.5 32C7.66344 32 0.5 24.8366 0.5 16Z" fill="white"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M23.1677 10.4995C23.9021 10.701 24.4804 11.2948 24.6767 12.0488C25.0333 13.4153 25.0333 16.2666 25.0333 16.2666C25.0333 16.2666 25.0333 19.1178 24.6767 20.4845C24.4804 21.2385 23.9021 21.8322 23.1677 22.0338C21.8369 22.4 16.5 22.4 16.5 22.4C16.5 22.4 11.1631 22.4 9.83218 22.0338C9.09783 21.8322 8.5195 21.2385 8.32323 20.4845C7.96667 19.1178 7.96667 16.2666 7.96667 16.2666C7.96667 16.2666 7.96667 13.4153 8.32323 12.0488C8.5195 11.2948 9.09783 10.701 9.83218 10.4995C11.1631 10.1333 16.5 10.1333 16.5 10.1333C16.5 10.1333 21.8369 10.1333 23.1677 10.4995ZM14.9 13.8666V19.1999L19.1667 16.5333L14.9 13.8666Z" fill="white"/>
+                          </svg>
+                    </a>
+                </div>
+            </div>
+
+            <ul class="footer-list">
+                <li><h2>Páginas</h2></li>
+                <li>
+                    <a href="#" class="footer-link">Introdução</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Sobre Nós</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Nosso Projeto</a>
+                </li>
+            </ul>
+
+            <ul class="footer-list">
+                <li><h2>Contato</h2></li>
+                <li>
+                    <a href="#" class="footer-link">Entrar</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Cadastrar</a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="footer_copyright">
+            &#169
+            2024 All rights reserved
+        </div>
+    </footer>
+
+<!-- Scripts separados-->
+    <script src="../script/tela_incial.js"></script>
+    <script>
+        function toggleMenu() {
+            const toolbar = document.getElementById('toolbar');
+            toolbar.classList.toggle('active'); // Adiciona ou remove a classe 'active'
+        }
+    </script>
+<!-- scrips para editar o nome-->
+<script>
+const editButton = document.getElementById("editButton");
+const saveButton = document.getElementById("saveButton");
+const inputs = document.querySelectorAll("input");
+
+editButton.addEventListener("click", () => {
+  inputs.forEach(input => input.disabled = false);
+  editButton.style.display = "none";
+  saveButton.style.display = "inline-block";
+});
+
+saveButton.addEventListener("click", () => {
+  inputs.forEach(input => input.disabled = true);
+  editButton.style.display = "inline-block";
+  saveButton.style.display = "none";
+
+  // Aqui, você pode adicionar a lógica para salvar as alterações
+  console.log("Nome:", document.getElementById("userName").value);
+  console.log("Email:", document.getElementById("userEmail").value);
+  console.log("Senha:", document.getElementById("userPassword").value);
+});
+
+const togglePasswordButton = document.getElementById("togglePassword");
+const passwordInput = document.getElementById("userPassword");
+
+togglePasswordButton.addEventListener("click", () => {
+  // Alternar entre mostrar/ocultar a senha
+  const isPasswordVisible = passwordInput.type === "text";
+  passwordInput.type = isPasswordVisible ? "password" : "text";
+
+  // Alternar ícone (olho aberto/fechado)
+  togglePasswordButton.innerHTML = isPasswordVisible 
+    ? `<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 33 30" fill="none"><path d="M23.9517 8.035C22.6236 9.57593 21.7739 11.4708 21.5067 13.4875" stroke="#005070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M1.91669 11.131C9.87719 20.053 17.3562 23.986 23.8122 21.781M27.6867 19.6075C29.1687 18.4255 30.5817 16.8535 31.9167 14.878C27.4167 8.2135 22.0227 6.16 16.0707 8.056M11.9247 9.955C8.70719 11.854 5.35769 14.7775 1.91669 18.634M25.9167 13.375V13.39M15.6462 13.6285C15.2162 14.7945 15.3897 15.96 16.1667 17.125M3.41669 1.375L30.4167 28.375" stroke="#005070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+    : `<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 35 35" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.9213 8.75729C20.7531 8.75262 20.5849 8.75019 20.4167 8.75C15.1186 8.75 10.1631 12.0954 6.62085 15.4204C5.71956 14.4358 4.88361 13.3933 4.11835 12.2996C4.01076 12.1397 3.87253 12.0026 3.71166 11.8965C3.55079 11.7903 3.37047 11.7171 3.18112 11.681C2.99177 11.645 2.79716 11.6468 2.60853 11.6864C2.4199 11.7261 2.24099 11.8027 2.08216 11.9119C1.92332 12.0211 1.78771 12.1607 1.68317 12.3226C1.57862 12.4845 1.50721 12.6656 1.47307 12.8553C1.43893 13.045 1.44273 13.2396 1.48426 13.4278C1.52579 13.616 1.60422 13.7942 1.71501 13.9519C2.58486 15.1979 3.53838 16.3833 4.56897 17.5C3.38335 18.7979 2.41064 20.0375 1.71501 21.0496C1.60422 21.2073 1.52579 21.3854 1.48426 21.5737C1.44273 21.7619 1.43893 21.9565 1.47307 22.1462C1.50721 22.3359 1.57862 22.5169 1.68317 22.6788C1.78771 22.8408 1.92332 22.9804 2.08216 23.0896C2.24099 23.1988 2.4199 23.2754 2.60853 23.315C2.79716 23.3547 2.99177 23.3565 3.18112 23.3204C3.37047 23.2844 3.55079 23.2112 3.71166 23.105C3.87253 22.9988 4.01076 22.8618 4.11835 22.7019C4.71626 21.8327 5.56793 20.7404 6.62085 19.5796C10.1646 22.9046 15.1186 26.25 20.4167 26.25C20.5965 26.25 20.774 26.2476 20.949 26.2427C20.5915 25.4262 20.3027 24.5813 20.0856 23.7169C19.677 22.1239 19.4111 20.4978 19.2908 18.8577C19.0473 15.6231 19.3229 11.8213 20.9213 8.75729ZM24.0158 25.881C24.1471 25.8519 24.2779 25.8217 24.4081 25.7906C27.3496 25.0731 29.5983 23.1029 31.0611 21.4375C31.8645 20.5187 32.5821 19.5283 33.2048 18.4785C33.2573 18.3901 33.2972 18.3206 33.3244 18.27L33.3579 18.2088L33.3681 18.1898L33.3711 18.184L33.3725 18.181L32.2248 17.5744L33.3725 18.1796L33.7327 17.5L33.3725 16.8204L32.2248 17.4256L33.3725 16.819L33.3711 16.816L33.3681 16.8088L33.3579 16.7913L33.3244 16.73C33.1468 16.4141 32.9586 16.1042 32.76 15.801C32.2463 15.0168 31.6791 14.2688 31.0625 13.5625C29.5998 11.8971 27.3496 9.92688 24.4096 9.20938L24.0158 9.11896C23.9784 9.2622 23.9194 9.3989 23.8408 9.52438C22.3344 11.9277 21.9538 15.365 22.2002 18.639C22.3073 20.1047 22.5445 21.5581 22.909 22.9819C23.2386 24.2463 23.5944 25.0921 23.8306 25.4581C23.9162 25.5933 23.977 25.7342 24.0158 25.881ZM16.345 15.6144C16.6185 15.3407 16.772 14.9697 16.7719 14.5828C16.7717 14.196 16.6179 13.825 16.3443 13.5516C16.0706 13.2781 15.6996 13.1246 15.3127 13.1247C14.9259 13.1248 14.5549 13.2786 14.2815 13.5523C13.8848 13.9475 13.5961 14.5177 13.3977 15.0325C13.1628 15.6521 13.0069 16.2989 12.934 16.9575C12.7823 18.3108 12.9573 20.125 14.2815 21.4492C14.5551 21.7226 14.9262 21.8762 15.313 21.876C15.6999 21.8759 16.0708 21.7221 16.3443 21.4484C16.6177 21.1748 16.7713 20.8037 16.7711 20.4169C16.771 20.03 16.6172 19.6591 16.3436 19.3856C15.9177 18.9583 15.7281 18.219 15.8331 17.2783C15.8813 16.8321 15.9936 16.4121 16.1204 16.0796C16.2269 15.8025 16.3158 15.6625 16.3421 15.6231C16.3518 15.6095 16.3523 15.6066 16.3436 15.6144H16.345ZM24.7917 16.0417C24.7917 15.6549 24.9453 15.284 25.2188 15.0105C25.4923 14.737 25.8632 14.5833 26.25 14.5833C26.6368 14.5833 27.0092 14.737 27.2827 15.0105C27.5562 15.284 27.7098 15.6549 27.7098 16.0417C27.7098 16.4284 27.5562 16.7994 27.2827 17.0729C27.0092 17.3464 26.6382 17.5 26.2515 17.5C25.8647 17.5 25.4923 17.3464 25.2188 17.0729C24.9453 16.7994 24.7917 16.4284 24.7917 16.0417Z" fill="#005070"/></svg>`;
+});
+
+</script>
+</body>
+</html>
