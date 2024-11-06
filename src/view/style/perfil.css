@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+.profile-container {
+    display: flex;
+    width: 500px;
+    padding: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border-radius: 25px;
+    background: #F5F7FA;
+    box-shadow: 0px 5px 10px 0px #0000002a;
+}
+
+.profile-container p{
+    font-size: 20px;
+    font-weight: 700;
+    color: #002E41;
+    text-transform: uppercase;
+}
+  
+.profile-photo img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+  
+.profile-info {
+    display: flex-end;
+    flex-direction: column;
+    justify-content: center;
+}
+  
+.profile-info label {
+    display: block;
+    color: #002E41;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+}
+  
+.profile-info input {
+    width: 450px;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #005070;
+    border-radius: 10px;
+    color: #005070;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.button-section {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+  
+.button-section button {
+    font-family: 'Poppins';
+    padding: 5px 25px;
+    width: 150px;
+    border: none;
+    border-radius: 50px;
+    font-size: 15px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s;
+}
+  
+  /* Botão "Voltar" */
+.button-section button a {
+    transform: scale(1.05);
+    color: #fff;
+    text-decoration: none;
+}
+  
+.button-section button:first-child {
+    background-color: #A5BE00;
+}
+  
+.button-section button:first-child:hover {
+    background-color: #5c8700;
+}
+  
+  /* Botão "Editar" */
+#editButton {
+    background-color: #005070;
+}
+  
+#editButton:hover {
+    background-color: #002E41;
+}
+
+#saveButton {
+    background-color: #008bc2;
+}
+
+#saveButton:hover {
+    background-color: #00679e;
+}
+
+#delete-btn {
+    background-color: #be0000;
+}
+  
+#delete-btn:hover {
+    background-color: #870000;
+}
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#userPassword {
+    width: 450px;
+    padding-right: 35px; /* Espaço para o ícone */
+}
+  
+.toggle-password {
+    position: absolute;
+    right: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+  
+.toggle-password svg {
+    width: 30px;
+    height: 30px;
+    
+}
