@@ -59,7 +59,7 @@ async function listarAquarios() {
                 localStorage.setItem('aquarioSelecionado', JSON.stringify(aquario));
                 
                 // Redirecionar para a página de detalhes
-                window.location.href = 'detalhes.html'; // Aqui você coloca o caminho da sua página de detalhes
+                window.location.href = 'tela_aquario.html'; // Aqui você coloca o caminho da sua página de detalhes
             });
         });
     } catch (error) {
