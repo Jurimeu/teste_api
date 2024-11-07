@@ -15,56 +15,44 @@ main {
 }
 
 .info-container {
-    width: 1120px;
+    width: auto;
     height: auto;
-    border-radius: 10px;
-    border: 2px solid #005070;
+    border-radius: 25px;
     background: #F5F7FA;
-    padding: 30px 50px;
-    display: flex;
-    align-items: center;
-}
-
-.info-title {
+    box-shadow: 0px 5px 10px 0px #0000002a;
+    padding: 50px;
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    align-items: center;
+    gap: 25px;
 }
 
-.info-title h2 {
-    font-size: 25px;
-    font-weight: 500;
-    color: #5c8700;
-    margin-bottom: 30px;
-    text-align: left;
+.image-section p{
+    font-size: 20px;
+    font-weight: 700;
+    color: #002E41;
     text-transform: uppercase;
 }
 
 .info-container img {
-    width: 300px;
-    height: 300px;
+    width: 370px;
+    height: 370px;
     object-fit: cover;
-    margin-right: 50px;
-    border: 2px solid #005070;
 }
 
 .info-text {
     display: flex;
+    align-items: first baseline;
     flex-direction: column;
     justify-content: center;
+    gap: 20px;
 }
 
-.name-section {
-    display: flex;
-    align-items: flex-end;
-    gap: 10px;
-}
-
-h4 {
+.info-text h2 {
     color: #002E41;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 700;
-    padding-bottom: 10px;
+    text-transform: uppercase;
 }
 
 .details-section .text-container {
@@ -74,108 +62,55 @@ h4 {
     margin-bottom: 10px;
 }
 
-.text-container{
-    color: #002E41;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-}
-
-.card-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    padding: 10px;
-    margin: 0 auto;
-    max-width: 950px;
-}
-
-/* Estilos para a seção de cartões */
-.card-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px 0;
-}
-
-.card {
-    text-align: center;
-    background-color: #002E41;
-    border-radius: 15px;
-    padding: 25px;
-}
-
-.card-content h3 {
-    font-size: 18px;
-    text-transform: uppercase;
-    color: #F5F7FA;
-    margin-bottom: 10px;
-}
-
-.card-content p {
-    color: #5dbce1;
-    font-size: 25px;
-}
-
-/* Estilos para o botão de salvar */
-.save-btn {
-    padding: 10px 20px;
-    background-color: #A5BE00;
-    color: #F5F7FA;
-    font-size: 15px;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 100px;
-    cursor: pointer;
-    display: none;
-    margin: 10px;
-}
-
-.save-btn.active {
-    display: inline-block;
-}
-
-.save-btn:disabled {
-    background-color: #757575;
-}
-
-/* Seção de botões */
 .button-section {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    padding: 20px 0;
+    align-items: center;
+    padding: 20px 0px;
+    gap:20px;
 }
 
-.button-back button, .button-resume button {
-    width: 190px;
-    height: 40px;
-    background-color: #A5BE00;
-    color: #F5F7FA;
+.button-section button {
+    font-family: 'Poppins';
+    padding: 5px 30px;
+    width: 170px;
     border: none;
-    font-family: 'Poppins'; 
-    font-size: 18px;
-    text-align: center;
-    border-radius: 100px;
+    border-radius: 50px;
+    font-size: 15px;
+    color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s;
+    transition: background-color 0.3s ease;
 }
-
-.button-back button:hover {
-    background-color: #5c8700;
+  
+  /* Botão "Voltar" */
+.button-section button a {
     transform: scale(1.05);
+    color: #fff;
+    text-decoration: none;
 }
-
-.button-resume button {
+  
+.button-section button:first-child {
+    background-color: #A5BE00;
+}
+  
+.button-section button:first-child:hover {
+    background-color: #5c8700;
+}
+  
+  /* Botão "Editar" */
+.button-section button {
     background-color: #005070;
 }
-
-.button-resume button:hover {
+  
+.button-section button:hover {
     background-color: #002E41;
-    transform: scale(1.05);
 }
 
-.button-back button a, .button-resume button a {
-    color: inherit;
-    text-decoration: none;
+
+#delete-btn {
+    background-color: #be0000;
+}
+  
+#delete-btn:hover {
+    background-color: #870000;
 }
