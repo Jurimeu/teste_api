@@ -47,30 +47,31 @@
             </button>
         </div>
     </nav>
-    <main>
+     <main>
         <div id="detalhesAquario" class="aquario-detalhes">
             <div class="info-container">
                 <img id="imagemAquario" alt="Imagem do Aquário">
                 
                 <div class="info-text">
-                    <h2 id="nomeAquario" contenteditable="false">Nome do Aquário</h2>
+                    <div class="title-container">
+                        <p><strong>Nome do Aquário:</strong></p><h2 id="nomeAquario"></h2>
+                    </div>
     
                     <div class="details-section">
                         <div class="text-container">
-                            <p id="codigoAquario"></p>
-                            <p id="modeloAquario"></p>
+                           <p><strong>Código do aquário:</strong></p><p id="codigoAquario"></p>
+                           <p><strong>Modelo do aquário:</strong></p><p id="modeloAquario"></p>
                         </div>
                     </div>
 
                     <div class="button-section">
                         <button><a href="tela_inicial.html">Voltar</a></button>
-                        <button id="delete-btn">Excluir Perfil</button>
+                        <button id="delete-btn">Excluir</button>
                         <button><a href="../html/registro_temp.html">Relatório</a></button>
                     </div>
                 </div>
             </div>
-            
-    </div>
+        </div>
     </main>
     <script src="../script/tela_aquario.js"></script>
 
