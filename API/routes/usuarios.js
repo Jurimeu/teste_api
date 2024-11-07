@@ -14,6 +14,27 @@ module.exports = (db) => {
             });
     });
 
+    router.get('/perfil', (req, res) => {
+
+        id = usuarioID;
+
+    if (!id) {
+        return res.status(401).send('Usuário não autenticado');
+    }
+    // Definindo a consulta SQL com SELECT e usando o usuarioId
+    const query = `SELECT * FROM usuarios WHERE id = ?`;
+    // Executando a consulta no banco de dados
+    db.get(query, [id], (err, row) => {
+        if (err) {
+            return res.status(400).send(err.message);  // Erro ao executar a consulta
+        }
+        if (!row) {
+            return res.status(404).send('Usuário não encontrado');
+        }
+        res.json(row);  // Retorna o usuário em formato JSON
+    });
+});
+
     router.get('/', (req, res) => {
         db.all(`SELECT * FROM usuarios`, [], (err, rows) => {
             if (err) {
