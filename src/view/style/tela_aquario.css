@@ -27,13 +27,6 @@ main {
     gap: 25px;
 }
 
-.image-section p{
-    font-size: 20px;
-    font-weight: 700;
-    color: #002E41;
-    text-transform: uppercase;
-}
-
 .info-container img {
     width: 370px;
     height: 370px;
@@ -48,18 +41,30 @@ main {
     gap: 20px;
 }
 
-.info-text h2 {
+.title-container{
+    display: flex;
+    align-items: first baseline;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+.title-container h2 {
     color: #002E41;
     font-size: 25px;
-    font-weight: 700;
+    font-weight: 500;
     text-transform: uppercase;
 }
 
-.details-section .text-container {
+.title-container p {
+    color: #002E41;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.text-container {
     color: #002E41;
     font-size: 18px;
     font-weight: 500;
-    margin-bottom: 10px;
 }
 
 .button-section {
