@@ -48,10 +48,10 @@ void loop() {
   oled.clearDisplay();
 
   // Centraliza a temperatura no OLED
-  oled.setCursor((SCREEN_WIDTH - 48) / 2, SCREEN_HEIGHT / 4); // Ajuste para centralizar
-  oled.print("Temp: ");
+  oled.setCursor((SCREEN_WIDTH - 48) / 2 - 20, SCREEN_HEIGHT / 4); // Ajuste para centralizar
   oled.print(temperature, 1);  // Imprime a temperatura com 1 casa decimal
-  oled.print(" C");
+  oled.print((char)247);
+  oled.print("C");
 
   // Exibe a temperatura no display
   oled.display();
@@ -61,5 +61,5 @@ void loop() {
   Serial.print(temperature, 1);  // Imprime a temperatura com 1 casa decimal
   Serial.println(" C");
 
-  delay(1000); // Aguarda 1 segundo antes de ler novamente
+  delay(100); // Aguarda 1 segundo antes de ler novamente
 }
