@@ -19,6 +19,7 @@ document.getElementById('aquarioForm').addEventListener('submit', async (e) => {
         } else {
             const errorData = await response.json();
             console.error('Erro ao cadastrar aquário:', errorData.message);
+            window.alert("Este aquario ja foi cadastrado cadastrado");
         }
     } catch (error) {
         console.error('Erro:', error);
