@@ -29,14 +29,16 @@ main {
     margin: auto;
     overflow: hidden;
 }
-  
+
 table {
-    width: 100%;
+    width: 900px;
     border-collapse: collapse;
     margin-top: 10px;
 }
   
 table, th, td {
+    width: 10%;         /* Ocupa toda a largura disponível */
+    height: 100%;        /* Ocupa toda a altura disponível */
     border: 1px solid #000000;
     padding: 10px;
 }
@@ -55,6 +57,36 @@ tbody{
     background-color: #F5F7FA;
     color: #002E41;
     text-align: left;
+}
+
+#tabela-relatorios {
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+    display: block;
+    border-bottom: 1px solid #000000;
+    padding: 0px;
+    scrollbar-width: 20px; 
+    scrollbar-color: #A5BE00 #f0f0f0;
+}
+  
+#tabela-relatorios::-webkit-scrollbar {
+    width: 15px; 
+}
+  
+#tabela-relatorios::-webkit-scrollbar-track {
+    background-color: #f0f0f0; 
+    border-radius: 50px;
+}
+  
+#tabela-relatorios::-webkit-scrollbar-thumb {
+    background-color: #A5BE00; 
+    border-radius: 50px; 
+    border: 3px solid #f0f0f0; 
+}
+
+#tabela-relatorios::-webkit-scrollbar-thumb:hover {
+    background-color: #5c8700; 
 }
 
 .button-container {
