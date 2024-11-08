@@ -31,6 +31,21 @@ module.exports = (db) => {
             });
     });
 
+    router.get('/relatorio/:id_aquario', (req, res) => {
+        const { id_aquario } = req.params; // Pega o parâmetro id_aquario da URL
+    
+        // Consulta para pegar os dados do aquário
+        db.all(`SELECT aquario_id, temperatura, horario FROM dados WHERE aquario_id = ?`, [id_aquario], (err, rows) => {
+            if (err || !rows || rows.length === 0) {
+                return res.status(404).json({ message: 'Dados não encontrados para esse aquário.' });
+            }
+    
+            // Se encontrou dados, retorna os resultados
+            res.status(200).json(rows);  // Envia os dados encontrados como um array de objetos
+        });
+    });
+    
+
     router.get('/', (req, res) => {
         db.all(`SELECT * FROM dados`, [], (err, rows) => {
             if (err) {
