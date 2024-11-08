@@ -3,6 +3,9 @@ const aquarioSelecionado = JSON.parse(localStorage.getItem('aquarioSelecionado')
 
 if (aquarioSelecionado) {
  const idAquario = aquarioSelecionado.id;
+ const nome = aquarioSelecionado.nome;
+ const modelo = aquarioSelecionado.modelo;
+
 
  fetch(`http://localhost:3000/dados/relatorio/${idAquario}`)
  // Substitua {id_do_aquario} com o ID correto
@@ -27,11 +30,11 @@ if (aquarioSelecionado) {
           tr.appendChild(tdId);
           
           const tdNome = document.createElement('td');
-          tdNome.textContent = item.nome_aquario; // Exibe o nome do aquário
+          tdNome.textContent = nome; // Exibe o nome do aquário
           tr.appendChild(tdNome);
           
           const tdModelo = document.createElement('td');
-          tdModelo.textContent = item.modelo; // Exibe o modelo (se existir)
+          tdModelo.textContent = modelo; // Exibe o modelo (se existir)
           tr.appendChild(tdModelo);
           
           const tdTemperatura = document.createElement('td');
