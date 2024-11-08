@@ -14,7 +14,7 @@ if (aquarioSelecionado) {
       console.log(data); // Verifique o formato da resposta da API
 
       // Seleciona o tbody da tabela onde os dados serão inseridos
-      const tbody = document.querySelector('#tabela-relatórios tbody');
+      const tbody = document.querySelector('#tabela-relatorios tbody');
 
       // Limpa a tabela antes de adicionar novos dados
       tbody.innerHTML = '';
