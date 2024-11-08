@@ -87,25 +87,6 @@
             </form>
         </div>
 
-<script>
-const optionMenu = document.querySelector(".select-menu"),
-selectBtn = optionMenu.querySelector(".select-btn"),
-options = optionMenu.querySelectorAll(".option"),
-sBtn_text = optionMenu.querySelector(".sBtn-text"); // Corrigido para querySelector
 
-// Adiciona o evento de clique para o botão de seleção
-selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));
-
-// Adiciona o evento de clique para cada opção
-options.forEach(option => {
-option.addEventListener("click", () => {
-let selectedOption = option.querySelector(".option-text").innerText;
-sBtn_text.innerText = selectedOption;
-
-// Remove a classe "active" para fechar o menu
-optionMenu.classList.remove("active");
-});
-});
-        </script>
     </body>
 </html>
