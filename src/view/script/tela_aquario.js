@@ -28,6 +28,9 @@
          case 'retangulo':
              imgSrc = '../img/Aquario_retangulo.jpg';
              break;
+       case 'acelera':
+             imgSrc = '../img/Aquario_acelera.jpg';
+             break;
          default:
              imgSrc = '../img/default.jpg';
      }
