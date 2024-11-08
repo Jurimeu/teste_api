@@ -31,6 +31,9 @@ async function listarAquarios() {
                 case 'retangulo':
                     img.src = '../img/Aquario_retangulo.jpg';
                     break;
+                    case 'acelera':
+                    imgSrc = '../img/Aquario_acelera.jpg';
+                    break;
                 default:
                     console.log('Modelo nao encontrado');
             }
