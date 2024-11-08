@@ -23,6 +23,7 @@ document.getElementById('aquarioForm').addEventListener('submit', async (e) => {
         }
     } catch (error) {
         console.error('Erro:', error);
+        window.alert("Este aquario ja foi cadastrado cadastrado");
     }
     
 });
