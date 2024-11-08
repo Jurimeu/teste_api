@@ -13,27 +13,30 @@ module.exports = (db) => {
                 res.status(201).json({ id: this.lastID });
             });
     });
-
+    
     router.get('/perfil', (req, res) => {
-
-        id = usuarioID;
-
-    if (!id) {
-        return res.status(401).send('Usuário não autenticado');
-    }
-    // Definindo a consulta SQL com SELECT e usando o usuarioId
-    const query = `SELECT * FROM usuarios WHERE id = ?`;
-    // Executando a consulta no banco de dados
-    db.get(query, [id], (err, row) => {
-        if (err) {
-            return res.status(400).send(err.message);  // Erro ao executar a consulta
+        const id = usuarioId;  // Supondo que você tenha uma forma de identificar o usuário autenticado
+    
+        if (!id) {
+            return res.status(401).json({ message: 'Usuário não autenticado' });
         }
-        if (!row) {
-            return res.status(404).send('Usuário não encontrado');
-        }
-        res.json(row);  // Retorna o usuário em formato JSON
+    
+        db.get(`SELECT nome, email, senha FROM usuarios WHERE id = ?`, [id], (err, row) => {
+            if (err || !row) {
+                return res.status(404).json({ message: 'Usuário não encontrado' });
+            }
+    
+            // Retorna os dados do usuário (nome, email, senha)
+            res.status(200).json({
+                usuario: {
+                    nome: row.nome,
+                    email: row.email,
+                    senha: row.senha  // Retorne a senha como você está fazendo, se for necessário (em produção, evite)
+                }
+            });
+        });
     });
-});
+    
 
     router.get('/', (req, res) => {
         db.all(`SELECT * FROM usuarios`, [], (err, rows) => {
