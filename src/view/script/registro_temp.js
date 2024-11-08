@@ -1,9 +1,9 @@
 const aquarioSelecionado = JSON.parse(localStorage.getItem('aquarioSelecionado'));
 
 
-//if (aquarioSelecionado && aquarioSelecionado.id_aquario) {
-  //  const idAquario = aquarioSelecionado.id_aquario;
-  fetch('http://localhost:3000/dados/relatorio/1') // Substitua {id_do_aquario} com o ID correto
+if (aquarioSelecionado) {
+ const idAquario = aquarioSelecionado.id_aquario;
+ fetch(`http://localhost:3000/dados/relatorio/${idAquario}`) // Substitua {id_do_aquario} com o ID correto
   .then(response => response.json())
   .then(data => {
       console.log(data); // Verifique o formato da resposta da API
@@ -48,6 +48,6 @@ const aquarioSelecionado = JSON.parse(localStorage.getItem('aquarioSelecionado')
       console.error('Erro ao carregar os dados:', error);
   });
 
-//} else {
-  //  console.log('Aquário não encontrado no localStorage');
-//}
+} else {
+  console.log('Aquário não encontrado no localStorage');
+}
