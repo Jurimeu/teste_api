@@ -23,6 +23,16 @@ header {
     z-index: 100;
 }
 
+header img{
+    width: 150px;
+    object-fit: cover;
+}
+
+#footer_contacts img{
+    width: 220px;
+    object-fit: cover;
+}
+
 footer{
     flex: 1; 
     bottom: 0;
