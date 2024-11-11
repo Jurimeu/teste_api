@@ -3,63 +3,86 @@
 #include <Adafruit_SSD1306.h>
 #include <OneWire.h>
 #include <DallasTemperature.h>
+#include <WiFiManager.h>
+#include <HTTPClient.h>
 
 #define SCREEN_WIDTH 128  // OLED width, in pixels
 #define SCREEN_HEIGHT 64  // OLED height, in pixels
 #define ONE_WIRE_BUS 23   // Pino de dados do sensor DS18B20
+#define RELAY_PIN 27      // Pino de controle do relé
 
-// Criando o objeto do display OLED
+const char* apiUrl = "http://192.168.1.5:3000/dados";  // URL do servidor
+
 Adafruit_SSD1306 oled(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
-
-// Configurando o sensor de temperatura DS18B20
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
+HTTPClient http;  // Declara o objeto HTTPClient globalmente para reutilização
 
 void setup() {
   Serial.begin(115200);
 
-  // Inicializando o display OLED com o endereço I2C 0x3C
-  if (!oled.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
-    Serial.println(F("Falha ao iniciar o SSD1306 OLED"));
-    while (1); // Se falhar, fica preso aqui
+  WiFiManager wm;
+  if (!wm.autoConnect("ESP32-Kazin", "admKazin123")) {
+    Serial.println("Falha na conexão WiFi");
+  } else {
+    Serial.println("Conectado ao WiFi com sucesso!");
   }
 
-  // Inicializando o sensor de temperatura
-  sensors.begin();
+  if (!oled.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    Serial.println(F("Falha ao iniciar o SSD1306 OLED"));
+    while (1);
+  }
 
-  // Pausa de 2 segundos para o OLED inicializar
-  delay(2000);
-  
-  // Limpando o display antes de começar
+  // Inicializa o sensor de temperatura e o relé
+  sensors.begin();
+  pinMode(RELAY_PIN, OUTPUT);
+  digitalWrite(RELAY_PIN, LOW);
+
+  // Configuração do HTTPClient para a requisição inicial
+  http.begin(apiUrl);
+  http.addHeader("Content-Type", "application/json");
+
   oled.clearDisplay();
   oled.display();
-
-  // Configura o texto e o estilo do OLED
-  oled.setTextSize(2);        // Tamanho da letra
-  oled.setTextColor(SSD1306_WHITE);  // Cor do texto
+  oled.setTextSize(2);
+  oled.setTextColor(SSD1306_WHITE);
 }
 
 void loop() {
-  // Solicita a temperatura do sensor
   sensors.requestTemperatures();
-  float temperature = sensors.getTempCByIndex(0);  // Obtém a temperatura em graus Celsius
+  float temperature = sensors.getTempCByIndex(0);
 
-  // Limpa a tela do OLED
+  // Atualiza o display OLED
   oled.clearDisplay();
-
-  // Centraliza a temperatura no OLED
-  oled.setCursor((SCREEN_WIDTH - 48) / 2 - 20, SCREEN_HEIGHT / 4); // Ajuste para centralizar
-  oled.print(temperature, 1);  // Imprime a temperatura com 1 casa decimal
+  oled.setCursor((SCREEN_WIDTH - 48) / 2 - 20, SCREEN_HEIGHT / 4);
+  oled.print(temperature, 1);
   oled.print((char)247);
   oled.print("C");
-
-  // Exibe a temperatura no display
   oled.display();
 
-  // Imprime a temperatura no Serial Monitor
-  Serial.print("Temperatura: ");
-  Serial.print(temperature, 1);  // Imprime a temperatura com 1 casa decimal
-  Serial.println(" C");
+  // Envia a temperatura para a API
+  String jsonData = "{\"temperatura\":" + String(temperature, 1) + "}" ;
+  int httpResponseCode = http.POST(jsonData);
 
-  delay(100); // Aguarda 1 segundo antes de ler novamente
+  if (httpResponseCode > 0) {
+    Serial.print("Código de resposta HTTP: ");
+    Serial.println(httpResponseCode);
+    String payload = http.getString();
+    Serial.println("Resposta da API: ");
+    Serial.println(payload);
+  } else {
+    Serial.print("Erro ao enviar dados: ");
+    Serial.println(httpResponseCode);
+  }
+
+  // Controle do relé com base na temperatura
+  if (temperature < 20.0) {
+    digitalWrite(RELAY_PIN, HIGH);
+    Serial.println("Aquecedor LIGADO");
+  } else if (temperature > 25.0) {
+    digitalWrite(RELAY_PIN, LOW);
+    Serial.println("Aquecedor DESLIGADO");
+  }
+
+  delay(10000);  // Aguarda 10 segundos antes da próxima leitura
 }
