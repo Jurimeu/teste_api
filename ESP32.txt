@@ -61,7 +61,7 @@ void loop() {
   oled.display();
 
   // Envia a temperatura para a API
-  String jsonData = "{\"temperatura\":" + String(temperature, 1) + "}" ;
+  String jsonData = "{\"temperatura\":" + String(temperature, 1) + ", \"aquario_id\": 1}";
   int httpResponseCode = http.POST(jsonData);
 
   if (httpResponseCode > 0) {
