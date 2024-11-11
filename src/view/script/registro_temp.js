@@ -19,6 +19,8 @@ if (aquarioSelecionado) {
       // Limpa a tabela antes de adicionar novos dados
       tbody.innerHTML = '';
 
+      data.reverse();
+   
       // Itera sobre os dados recebidos da API e cria as linhas
       data.forEach(item => {
           // Cria uma nova linha da tabela (tr)
